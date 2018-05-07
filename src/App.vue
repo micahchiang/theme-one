@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    {{msg}}
+    <site-header></site-header>
+    <body-component></body-component>
   </div>
 </template>
 
 <script>
+import SiteHeader from './components/Header.vue';
+import BodyComponent from './components/Body';
 export default {
   name: 'app',
+  components: { SiteHeader, BodyComponent },
   data() {
-    return {
-      msg: 'Hello World'
-    };
+    return {};
   }
 };
 </script>
@@ -18,29 +20,10 @@ export default {
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-h1,
-h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
+  color: $primary-color;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 </style>
