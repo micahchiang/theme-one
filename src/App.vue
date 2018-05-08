@@ -8,6 +8,7 @@
 <script>
 import SiteHeader from './components/Header.vue';
 import BodyComponent from './components/Body';
+
 export default {
   name: 'app',
   components: { SiteHeader, BodyComponent },
