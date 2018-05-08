@@ -1,10 +1,12 @@
 <template>
     <div class="blog__container">
         <ul>
-            <li v-for="(entry, index) in entries" :key=index>
+            <li v-for="(entry, index) in dummydata" :key=index>
                 <p>{{entry.title}}</p>
             </li>
         </ul>
+        <div>
+        </div>
     </div>
 </template>
 
@@ -18,11 +20,18 @@ export default {
       msg: 'This is blog'
     };
   },
+  created() {
+    this.$store.dispatch('getData');
+  },
   computed: {
     entries() {
       return this.$store.getters.entries;
+    },
+    dummydata() {
+      return this.$store.getters.dummydata;
     }
-  }
+  },
+  methods: {}
 };
 </script>
 
