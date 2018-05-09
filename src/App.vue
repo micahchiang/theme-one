@@ -14,6 +14,9 @@ export default {
   components: { SiteHeader, BodyComponent },
   data() {
     return {};
+  },
+  created() {
+    this.$store.dispatch('getData');
   }
 };
 </script>

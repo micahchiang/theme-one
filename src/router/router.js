@@ -1,8 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '../components/Home.vue';
-import Blog from '../components/Blog.vue';
 import About from '../components/About.vue';
+import Home from '../components/Home.vue';
+//Blog components
+import Blog from '../components/Blog.vue';
+import BlogList from '../components/BlogList.vue';
+import PostProfile from '../components/PostProfile.vue';
 
 Vue.use(Router);
 
@@ -15,8 +18,17 @@ export default new Router({
     },
     {
       path: '/blog',
-      name: 'Blog',
-      component: Blog
+      component: Blog,
+      children: [
+        {
+          path: '/',
+          component: BlogList
+        },
+        {
+          path: '/blog/posts/:id',
+          component: PostProfile
+        }
+      ]
     },
     {
       path: '/about',
