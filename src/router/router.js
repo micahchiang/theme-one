@@ -26,7 +26,8 @@ export default new Router({
         },
         {
           path: '/blog/posts/:id',
-          component: PostProfile
+          component: PostProfile,
+          props: true
         }
       ]
     },

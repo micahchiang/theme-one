@@ -56,6 +56,12 @@ const getters = {
   },
   dummydata: () => {
     return state.dummydata;
+  },
+  getEntryById: state => id => {
+    return state.dummydata.find(entry => {
+      let data = entry.id === parseInt(id);
+      return data;
+    });
   }
 };
 

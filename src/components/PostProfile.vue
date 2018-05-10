@@ -1,13 +1,23 @@
 <template>
     <div class="post__container">
-        {{$route.params.id}}
+        {{id}}
+        <br> {{entry.body}}
     </div>
 </template>
 
 <script>
 export default {
   name: 'PostProfile',
-  props: ['id']
+  props: ['id'],
+  data: function() {
+    return {
+      entry: {}
+    };
+  },
+  created() {
+    let newentry = this.$store.getters.getEntryById(this.id);
+    this.entry = newentry;
+  }
 };
 </script>
 
