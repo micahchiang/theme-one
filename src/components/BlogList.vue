@@ -1,8 +1,8 @@
 <template>
   <div class="blog__container">
     <ul class="entries__list">
-      <li class="entry__title" v-for="(entry, index) in dummydata" :key=index>
-        <router-link :to="'/blog/posts/' + entry.id">{{entry.title}},{{entry.id}}</router-link>
+      <li class="entry__title" v-for="(entry, index) in entries" :key=index>
+        <router-link :to="'/blog/posts/' + entry._id">{{entry.title}}</router-link>
       </li>
     </ul>
   </div>

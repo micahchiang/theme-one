@@ -1,65 +1,28 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import DummyService from './dummy.service';
+import BackendService from './backend.service';
 
 Vue.use(Vuex);
 
 const dummyService = new DummyService();
+const backend = new BackendService();
 
 const state = {
-  blog: {
-    entries: [
-      {
-        title: 'This is a title',
-        id: 1,
-        body:
-          'this is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a body'
-      },
-      {
-        title: 'This is a title',
-        id: 2,
-        body:
-          'this is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a body'
-      },
-      {
-        title: 'This is a title',
-        id: 3,
-        body:
-          'this is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a body'
-      },
-      {
-        title: 'This is a title',
-        id: 4,
-        body:
-          'this is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a body'
-      },
-      {
-        title: 'This is a title',
-        id: 5,
-        body:
-          'this is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a body'
-      },
-      {
-        title: 'This is a title',
-        id: 6,
-        body:
-          'this is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a bodythis is a body'
-      }
-    ]
-  },
+  blog: [],
   dummydata: []
 };
 
 const getters = {
   entries: () => {
-    return state.blog.entries;
+    return state.blog;
   },
   dummydata: () => {
     return state.dummydata;
   },
   getEntryById: state => id => {
-    return state.dummydata.find(entry => {
-      let data = entry.id === parseInt(id);
+    return state.blog.find(entry => {
+      let data = entry._id === id;
       return data;
     });
   }
@@ -75,12 +38,26 @@ const actions = {
       .catch(err => {
         console.log(err);
       });
+  },
+  getEntries({ commit }) {
+    backend
+      .getEntries()
+      .then(res => {
+        commit('setEntries', res);
+        console.log('entries retrieved', res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 };
 
 const mutations = {
   setData(state, data) {
     state['dummydata'] = data;
+  },
+  setEntries(state, data) {
+    state['blog'] = data;
   }
 };
 

@@ -16,7 +16,7 @@ export default {
     return {};
   },
   created() {
-    this.$store.dispatch('getData');
+    this.$store.dispatch('getEntries');
   }
 };
 </script>

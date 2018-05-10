@@ -1,9 +1,8 @@
 <template>
-    <header class="header">
-        <router-link to="/" class="nav__btn">Home</router-link>
-        <router-link to="/blog" class="nav__btn">Blog</router-link>
-        <router-link to="/about" class="nav__btn">About</router-link>
-    </header>
+  <header class="header">
+    <router-link to="/" class="nav__btn">Blog</router-link>
+    <router-link to="/about" class="nav__btn">About</router-link>
+  </header>
 </template>
 
 <script>

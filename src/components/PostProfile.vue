@@ -1,7 +1,8 @@
 <template>
     <div class="post__container">
-        {{id}}
-        <br> {{entry.body}}
+        {{entry.title}}
+        <br> {{entry.date}}
+        <br> {{entry.entry}}
     </div>
 </template>
 
