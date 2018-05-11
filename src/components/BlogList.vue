@@ -2,7 +2,8 @@
   <div class="blog__container">
     <ul class="entries__list">
       <li class="entry__title" v-for="(entry, index) in entries" :key=index>
-        <router-link :to="'/blog/posts/' + entry._id">{{entry.title}}</router-link>
+        <p class="entry__date">{{entry.date}}</p>
+        <router-link class="entry__link" :to="'/blog/posts/' + entry._id">{{entry.title}}</router-link>
       </li>
     </ul>
   </div>
@@ -33,6 +34,7 @@ export default {
 }
 
 .entries__list {
+  width: 70%;
   max-width: 70%;
   list-style: none;
 }
@@ -40,9 +42,17 @@ export default {
 .entry__title {
   padding: 2.5rem;
   font-size: 2rem;
-  &:not(:last-child) {
-    border-bottom: 2px solid #cccccc;
-  }
+  text-align: left;
+}
+
+.entry__date {
+  font-size: 1.5rem;
+}
+
+.entry__link {
+  text-decoration: none;
+  color: $primary-color;
+  font-size: 3rem;
 }
 </style>
 
