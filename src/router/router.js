@@ -1,10 +1,12 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import About from '../components/About.vue';
+import About from '../components/client/About.vue';
 //Blog components
-import Blog from '../components/Blog.vue';
-import BlogList from '../components/BlogList.vue';
-import PostProfile from '../components/PostProfile.vue';
+import Blog from '../components/client/Blog.vue';
+import BlogList from '../components/client/BlogList.vue';
+import PostProfile from '../components/client/PostProfile.vue';
+//Session components
+import Login from '../components/session/Login.vue';
 
 Vue.use(Router);
 
@@ -29,6 +31,11 @@ export default new Router({
       path: '/about',
       name: 'About',
       component: About
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     }
   ]
 });

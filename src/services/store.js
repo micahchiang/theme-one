@@ -10,7 +10,8 @@ const backend = new BackendService();
 
 const state = {
   blog: [],
-  dummydata: []
+  dummydata: [],
+  auth_request: ''
 };
 
 const getters = {
@@ -44,11 +45,24 @@ const actions = {
       .getEntries()
       .then(res => {
         commit('setEntries', res);
-        console.log('entries retrieved', res);
       })
       .catch(err => {
         console.log(err);
       });
+  },
+  AUTH_REQUEST({ commit, dispacth }, user) {
+    commit('auth_request');
+    return new Promise((resolve, reject) => {
+      backend
+        .login(user)
+        .then(res => {
+          console.log('login successful', res);
+          resolve(res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    });
   }
 };
 
@@ -58,6 +72,9 @@ const mutations = {
   },
   setEntries(state, data) {
     state['blog'] = data;
+  },
+  auth_request(state) {
+    state['auth_request'] = 'loading';
   }
 };
 
