@@ -11,7 +11,8 @@ const backend = new BackendService();
 const state = {
   blog: [],
   dummydata: [],
-  auth_request: ''
+  status: '',
+  token: localStorage.getItem('user-token') || ''
 };
 
 const getters = {
@@ -26,6 +27,12 @@ const getters = {
       let data = entry._id === id;
       return data;
     });
+  },
+  isAuthenticated: () => {
+    return state.token === '' ? false : true;
+  },
+  authStatus: () => {
+    return state.status;
   }
 };
 
@@ -56,11 +63,16 @@ const actions = {
       backend
         .login(user)
         .then(res => {
-          console.log('login successful', res);
+          const token = res.token;
+          localStorage.setItem('user-token', token);
+          commit('auth_success', token);
+          // dispatch('user_request');
           resolve(res);
         })
         .catch(err => {
-          console.log(err);
+          commit('auth_error', err);
+          localStorage.removeItem('user-token');
+          reject(err);
         });
     });
   }
@@ -68,13 +80,20 @@ const actions = {
 
 const mutations = {
   setData(state, data) {
-    state['dummydata'] = data;
+    state.dummydata = data;
   },
   setEntries(state, data) {
-    state['blog'] = data;
+    state.blog = data;
   },
   auth_request(state) {
-    state['auth_request'] = 'loading';
+    state.status = 'loading';
+  },
+  auth_success(state, token) {
+    state.status = 'success';
+    state.token = token;
+  },
+  auth_error(state, err) {
+    state.status = 'error';
   }
 };
 

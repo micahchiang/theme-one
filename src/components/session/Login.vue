@@ -30,7 +30,7 @@ export default {
         password: this.password
       };
       this.$store.dispatch('AUTH_REQUEST', payload).then(res => {
-        console.log('back in login', res);
+        this.$router.push('/dashboard');
       });
     }
   }
