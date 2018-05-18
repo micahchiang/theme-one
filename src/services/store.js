@@ -75,6 +75,20 @@ const actions = {
           reject(err);
         });
     });
+  },
+  submitEntry({ commit, dispatch }, entry) {
+    return new Promise((resolve, reject) => {
+      backend
+        .submitEntry(entry)
+        .then(res => {
+          dispatch('getEntries');
+          resolve(res);
+        })
+        .catch(err => {
+          console.log('err occurred', err);
+          reject(err);
+        });
+    });
   }
 };
 

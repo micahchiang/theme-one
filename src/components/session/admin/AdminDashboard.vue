@@ -9,6 +9,7 @@
                 <form @submit.prevent="submitForm">
                     <input v-model="title" type="text" placeholder="Title">
                     <textarea v-model="postBody"></textarea>
+                    <button type='submit'>Submit</button>
                 </form>
             </section>
         </main>
@@ -23,6 +24,17 @@ export default {
       title: '',
       postBody: ''
     };
+  },
+  methods: {
+    submitForm: function() {
+      let payload = {
+        title: this.title,
+        entry: this.postBody
+      };
+      this.$store.dispatch('submitEntry', payload).then(res => {
+        console.log(res);
+      });
+    }
   }
 };
 </script>

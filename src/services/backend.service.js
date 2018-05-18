@@ -19,7 +19,6 @@ export default class BackendService {
   }
 
   login(user) {
-    console.log('in login method', user);
     let options = {
       method: 'POST',
       mode: 'cors',
@@ -35,6 +34,28 @@ export default class BackendService {
       })
       .then(res => {
         return res;
+      });
+  }
+
+  submitEntry(entry) {
+    let options = {
+      method: 'POST',
+      mode: 'cors',
+      cache: 'default',
+      body: JSON.stringify(entry),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    };
+    return fetch(`${this.baseUrl}/api/entries`, options)
+      .then(res => {
+        return res.json();
+      })
+      .then(res => {
+        return res;
+      })
+      .catch(err => {
+        console.log('in backend service with error: ', err);
       });
   }
 }
