@@ -1,2 +1,24 @@
 $primary-color: #2c3e50;
 $white-color: #ffffff;
+
+// button classes
+.submit__btn {
+  padding: 2rem 6rem;
+  border-radius: 5px;
+  font-size: 2rem;
+  border: none;
+  background-color: $primary-color;
+  color: $white-color;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease-out;
+  &:hover {
+    transform: translateY(-0.4rem);
+    box-shadow: 0 3px 5px rgba(#000000, 0.2);
+  }
+  &:active {
+    transform: translateY(0.2rem);
+    box-shadow: 0 3px 5px rgba(#000000, 0.2);
+    outline: none;
+  }
+}

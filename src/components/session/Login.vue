@@ -10,7 +10,7 @@
                 <label>Password</label>
                 <input v-model="password" type="text" placeholder="password">
             </fieldset>
-            <button class="login-btn" type="submit">Log In</button>
+            <button class="submit__btn" type="submit">Log In</button>
         </form>
     </div>
 </template>
@@ -57,27 +57,6 @@ export default {
       line-height: 3rem;
       font-size: 2rem;
       padding: 1rem;
-      outline: none;
-    }
-  }
-
-  .login-btn {
-    padding: 2rem 6rem;
-    border-radius: 5px;
-    font-size: 2rem;
-    border: none;
-    background-color: $primary-color;
-    color: $white-color;
-    cursor: pointer;
-    outline: none;
-    transition: all 0.2s ease-out;
-    &:hover {
-      transform: translateY(-0.4rem);
-      box-shadow: 0 3px 5px rgba(#000000, 0.2);
-    }
-    &:active {
-      transform: translateY(0.2rem);
-      box-shadow: 0 3px 5px rgba(#000000, 0.2);
       outline: none;
     }
   }
