@@ -1,8 +1,10 @@
 <template>
     <div class="dashboard__container">
         <aside>
-            <ul>
-                <li>Dummy List</li>
+            <ul class="entries__title-list">
+                <li v-for="(entry, index) in entries" :key="index">
+                    {{entry.title}}
+                </li>
             </ul>
         </aside>
         <main>
@@ -19,6 +21,11 @@
 
 <script>
 export default {
+  computed: {
+    entries() {
+      return this.$store.getters.entries;
+    }
+  },
   data: function() {
     return {
       msg: 'This is Admin Dashboard',
@@ -50,6 +57,15 @@ export default {
     flex: 0 0 30%;
     border-right: 3px solid gray;
     padding: 2rem;
+
+    .entries__title-list {
+      list-style: none;
+      text-align: left;
+      li {
+        margin: 2rem 0;
+        font-size: 2rem;
+      }
+    }
   }
 
   main {

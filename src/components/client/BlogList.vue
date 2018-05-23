@@ -17,9 +17,6 @@ export default {
   computed: {
     entries() {
       return this.$store.getters.entries;
-    },
-    dummydata() {
-      return this.$store.getters.dummydata;
     }
   },
   methods: {}
@@ -42,7 +39,7 @@ export default {
 .entry__title {
   padding: 2.5rem;
   font-size: 2rem;
-  text-align: left;
+  text-align: center;
 }
 
 .entry__date {

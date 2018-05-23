@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import store from '../services/store';
-import About from '../components/client/About.vue';
+import About from '../components/client/about/About.vue';
 //Blog components
 import Blog from '../components/client/Blog.vue';
 import BlogList from '../components/client/BlogList.vue';
