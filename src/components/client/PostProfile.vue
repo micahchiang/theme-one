@@ -2,7 +2,9 @@
     <div class="post__container">
         {{entry.title}}
         <br> {{entry.date}}
-        <br> {{entry.entry}}
+        <section id="entryContent" ref="entryContent">
+
+        </section>
     </div>
 </template>
 
@@ -18,12 +20,14 @@ export default {
   created() {
     let newentry = this.$store.getters.getEntryById(this.id);
     this.entry = newentry;
+  },
+  mounted() {
+    this.$refs.entryContent.innerHTML = this.entry.entry;
   }
 };
 </script>
 
 <style lang="scss" scoped>
-
 </style>
 
 

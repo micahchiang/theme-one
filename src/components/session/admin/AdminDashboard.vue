@@ -11,7 +11,7 @@
             <section class="form__container">
                 <form @submit.prevent="submitForm">
                     <input v-model="title" type="text" placeholder="Title">
-                    <textarea v-model="postBody" rows=20></textarea>
+                    <vue-editor v-model="postBody"></vue-editor>
                     <button type='submit' class="submit__btn">Submit</button>
                 </form>
             </section>
@@ -20,7 +20,10 @@
 </template>
 
 <script>
+import { VueEditor } from 'vue2-editor';
+
 export default {
+  components: { VueEditor },
   computed: {
     entries() {
       return this.$store.getters.entries;
