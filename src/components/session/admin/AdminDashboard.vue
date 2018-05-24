@@ -43,7 +43,13 @@ export default {
         entry: this.postBody
       };
       this.$store.dispatch('submitEntry', payload).then(res => {
-        console.log(res);
+        // do a toastr thing...
+        if (res && res.status === 201) {
+          this.title = '';
+          this.postBody = '';
+        } else {
+          console.log('an error occurred hmm...', res);
+        }
       });
     }
   }

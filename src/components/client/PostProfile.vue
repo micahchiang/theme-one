@@ -2,7 +2,7 @@
     <div class="post__container">
         {{entry.title}}
         <br> {{entry.date}}
-        <section id="entryContent" ref="entryContent">
+        <section id="entryContent" ref="entryContent" class="entry__content-container">
 
         </section>
     </div>
@@ -28,6 +28,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.entry__content-container {
+  text-align: left;
+  padding: 3rem;
+}
 </style>
 
 
