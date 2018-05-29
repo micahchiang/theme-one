@@ -65,7 +65,7 @@ export default {
 .img {
   height: 100%;
   width: 100%;
-  background-image: url('./mc_biopic.jpg');
+  background-image: url('mc_biopic.jpg');
   background-repeat: no-repeat;
   background-size: contain;
   background-position-x: right;
@@ -149,7 +149,7 @@ export default {
 .linkedin {
   height: 10%;
   width: 6%;
-  background-image: url('./linkedin.png');
+  background-image: url('linkedin.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -158,7 +158,7 @@ export default {
 .github {
   height: 10%;
   width: 6%;
-  background-image: url('./github.svg');
+  background-image: url('github.svg');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -167,7 +167,7 @@ export default {
 .insta {
   height: 10%;
   width: 6%;
-  background-image: url('./instasvg.svg');
+  background-image: url('instasvg.svg');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -176,7 +176,7 @@ export default {
 .email {
   height: 10%;
   width: 6%;
-  background-image: url('./email.svg');
+  background-image: url('email.svg');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
