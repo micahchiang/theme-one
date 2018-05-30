@@ -33,7 +33,13 @@ export default class BackendService {
         return res.json();
       })
       .then(res => {
-        return res;
+        if (res.user) {
+          res.status = 200;
+          return res;
+        } else {
+          res.status = 400;
+          return res;
+        }
       });
   }
 
