@@ -1,26 +1,27 @@
 <template>
-    <div class="dashboard__container">
-        <aside>
-            <ul class="entries__title-list">
-                <li v-for="(entry, index) in entries" :key="index">
-                    {{entry.title}}
-                </li>
-            </ul>
-        </aside>
-        <main>
-            <section class="form__container">
-                <form @submit.prevent="submitForm">
-                    <input v-model="title" type="text" placeholder="Title">
-                    <vue-editor v-model="postBody"></vue-editor>
-                    <button type='submit' class="submit__btn">Submit</button>
-                </form>
-            </section>
-        </main>
-    </div>
+  <div class="dashboard__container" ref="dashboardContainer">
+    <aside>
+      <ul class="entries__title-list">
+        <li v-for="(entry, index) in entries" :key="index">
+          {{entry.title}}
+        </li>
+      </ul>
+    </aside>
+    <main>
+      <section class="form__container">
+        <form @submit.prevent="submitForm">
+          <input v-model="title" type="text" placeholder="Title">
+          <vue-editor v-model="postBody"></vue-editor>
+          <button type='submit' class="submit__btn">Submit</button>
+        </form>
+      </section>
+    </main>
+  </div>
 </template>
 
 <script>
 import { VueEditor } from 'vue2-editor';
+import VueNotifications from '../../shared/Notifications';
 
 export default {
   components: { VueEditor },
@@ -47,7 +48,27 @@ export default {
         if (res && res.status === 201) {
           this.title = '';
           this.postBody = '';
+          let ComponentClass = Vue.extend(VueNotifications);
+          let instance = new ComponentClass({
+            propsData: {
+              type: 'success',
+              title: 'Success!',
+              msg: 'Post successfully saved!'
+            }
+          });
+          instance.$mount();
+          this.$refs.dashboardContainer.appendChild(instance.$el);
         } else {
+          let ComponentClass = Vue.extend(VueNotifications);
+          let instance = new ComponentClass({
+            propsData: {
+              type: 'error',
+              title: 'Alert!',
+              msg: 'There was an error saving this post.'
+            }
+          });
+          instance.$mount();
+          this.$refs.dashboardContainer.appendChild(instance.$el);
           console.log('an error occurred hmm...', res);
         }
       });
