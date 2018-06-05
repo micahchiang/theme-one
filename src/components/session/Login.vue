@@ -8,7 +8,7 @@
       </fieldset>
       <fieldset class="login__form-fieldset">
         <label>Password</label>
-        <input v-model="password" type="text" placeholder="password">
+        <input v-model="password" type="password" placeholder="password">
       </fieldset>
       <button class="submit__btn" type="submit">Log In</button>
     </form>
