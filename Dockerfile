@@ -1,10 +1,12 @@
-FROM node:8.9-alpine as builder
+FROM node:9.11.1-alpine as builder
 WORKDIR /app
-COPY package.json .
-RUN yarn install
+COPY package*.json ./
+RUN npm install
 COPY . .
-EXPOSE 8080
 RUN npm run build
 
-FROM nginx
+FROM nginx:1.13.12-alpine as production-builder
+COPY --from=builder /app/index.html /usr/shared/nginx/html
 COPY --from=builder /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
