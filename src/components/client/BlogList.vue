@@ -31,8 +31,8 @@ export default {
 }
 
 .entries__list {
-  width: 70%;
-  max-width: 70%;
+  width: 100%;
+  max-width: 100%;
   list-style: none;
 }
 
@@ -50,6 +50,10 @@ export default {
   text-decoration: none;
   color: $primary-color;
   font-size: 3rem;
+
+  @media only screen and (max-width: 400px) {
+    font-size: 2rem;
+  }
 }
 </style>
 

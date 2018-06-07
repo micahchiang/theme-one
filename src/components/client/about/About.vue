@@ -8,10 +8,10 @@
       </p>
     </section>
     <section id="social" class="social__links grid-item" ref="social">
-      <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/micahkchiang"></a>
-      <a class="github" target="_blank" href="https://github.com/micahchiang"></a>
-      <a class="insta" target="_blank" href="https://www.instagram.com/micahkchiang/"></a>
-      <a class="email" href="mailto:micahkchiang@gmail.com"></a>
+      <a class="social__link linkedin" target="_blank" href="https://www.linkedin.com/in/micahkchiang"></a>
+      <a class="social__link github" target="_blank" href="https://github.com/micahchiang"></a>
+      <a class="social__link insta" target="_blank" href="https://www.instagram.com/micahkchiang/"></a>
+      <a class="social__link email" href="mailto:micahkchiang@gmail.com"></a>
     </section>
   </div>
 </template>
@@ -70,6 +70,10 @@ export default {
   background-size: contain;
   background-position-x: right;
   opacity: 0;
+
+  @media screen and (max-width: 500px) {
+    background-position-x: center;
+  }
 }
 
 .img__fade-in {
@@ -93,6 +97,10 @@ export default {
   justify-content: flex-start;
   padding: 0 2em;
   font-size: 16px;
+
+  @media only screen and (max-width: 500px) {
+    padding: 0 0 0 3.5em;
+  }
 }
 
 .bio__desc-text {
@@ -103,6 +111,10 @@ export default {
   font-weight: 300;
   text-align: left;
   opacity: 0;
+
+  @media only screen and (max-width: 500px) {
+    font-size: 1em;
+  }
 }
 
 .bio__desc-fade-in {
@@ -128,6 +140,10 @@ export default {
   justify-content: flex-start;
   padding: 0 2em;
   opacity: 0;
+
+  @media screen and (max-width: 500px) {
+    justify-content: center;
+  }
 }
 
 .social__links-fade-in {
@@ -146,40 +162,33 @@ export default {
   }
 }
 
-.linkedin {
+.social__link {
   height: 10%;
   width: 6%;
-  background-image: url('linkedin.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+
+  @media only screen and (max-width: 500px) {
+    height: 15%;
+    width: 15%;
+  }
+}
+
+.linkedin {
+  background-image: url('linkedin.png');
 }
 
 .github {
-  height: 10%;
-  width: 6%;
   background-image: url('github.svg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .insta {
-  height: 10%;
-  width: 6%;
   background-image: url('instasvg.svg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .email {
-  height: 10%;
-  width: 6%;
   background-image: url('email.svg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 </style>
 

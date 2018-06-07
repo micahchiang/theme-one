@@ -18,6 +18,10 @@ export default {
   flex: 0 0 8%;
   display: flex;
 
+  @media only screen and (max-width: 400px) {
+    flex: 0 0 12%;
+  }
+
   .nav__btn {
     color: $white-color;
     text-decoration: none;
