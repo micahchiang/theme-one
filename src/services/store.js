@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import DummyService from './dummy.service';
 import BackendService from './backend.service';
 
 Vue.use(Vuex);
