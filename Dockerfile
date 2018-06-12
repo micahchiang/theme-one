@@ -6,7 +6,7 @@ COPY . .
 RUN npm run build
 
 FROM nginx:1.13.12-alpine as production-builder
-COPY --from=builder /app/index.html /usr/shared/nginx/html
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/index.html /usr/share/nginx/html/index.html
+COPY --from=builder /app/dist /usr/share/nginx/html/dist
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
