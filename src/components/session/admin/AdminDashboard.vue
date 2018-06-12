@@ -89,6 +89,10 @@ export default {
     border-right: 3px solid gray;
     padding: 2rem;
 
+    @media only screen and (max-width: 600px) {
+      display: none;
+    }
+
     .entries__title-list {
       list-style: none;
       text-align: left;
@@ -101,6 +105,10 @@ export default {
 
   main {
     flex: 0 0 70%;
+
+    @media only screen and (max-width: 600px) {
+      flex: 0 0 100%;
+    }
 
     .form__container {
       padding: 2rem;
