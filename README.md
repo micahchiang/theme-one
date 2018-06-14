@@ -1,10 +1,10 @@
 # theme-one
 
-> A Vue.js project
+> A simple, responsive blog theme with an integrated admin dashboard to add new posts. Built with Vue. Connects to an API written in node. Deployed using docker. An ongoing project.
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
